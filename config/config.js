@@ -3,6 +3,11 @@ var config = {
       host: 'localhost:3506',
       mode: 'local',
       port: '3506', 
+      mail: {
+        'username': 'mytextbookswap@gmail.com',
+        'password': 'oimvjmpljkjiokqt',
+        'service' : 'Gmail'
+            },
       mongo: {
         'hostname': 'localhost',
         'port': 27017,
@@ -15,7 +20,12 @@ var config = {
   production: {
       host: '',
       mode: 'production',
-      port: '5000', 
+      port: '5000',
+      mail: {
+        'username': 'mytextbookswap@gmail.com',
+        'password': 'oimvjmpljkjiokqt',
+        'service' : 'Gmail'
+            },
       mongo: {
         'hostname': 'amir-HP-Pavilion-dv5-Notebook-PC',
         'port': 27017,
