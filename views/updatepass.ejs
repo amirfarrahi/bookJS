@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Exchange Books</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link href="stylesheets/small-business.css" rel="stylesheet">
+    <link href="stylesheets/bootstrap-table.min.css" rel="stylesheet">
+    <link href="stylesheets/font-awesome.min.css" rel="stylesheet">
+    <link href="stylesheets/social-buttons-3.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body style="background: url(img/lib.jpg) no-repeat center;">
+
+    <!-- Page Content -->
+   <div class="container">
+
+
+
+  <div class="modal-dialog">
+  <div class="modal-content" style=" background-color:#E8E8E8;">
+      <div class="modal-header">
+
+        <h1 class="model-title"><span class="glyphicon glyphicon-lock"></span>&nbsp;Change Password</h1>
+      </div>
+      <div class="modal-body">
+       <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
+          <form class="form col-md-12 col-sm-6 center-block" action="<%= '/reset/' + mu %>"  method="post" >
+            <div class="form-group">
+              <input type="password" name="password" class="form-control input-lg" placeholder="password" required autofocus>
+            </div>
+            <div class="form-group" >
+	      <input type="password" name="confirmpassword" class="form-control input-lg" placeholder="Confirm Password" required>
+            </div>
+            <div class="form-group">
+              <button id="update" class="btn btn-primary btn-lg btn-block"><span class=""></span>&nbsp;Update Password</button>
+            </div>
+         </form>
+      </div>
+      <div class="modal-footer">
+         	
+      </div>
+
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="javscripts/jquery.js"></script>
+    <script src="javscripts/jquery.min.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="javscripts/bootstrap.min.js"></script>
+    <script src="javscripts/bootstrap-table.min.js"></script>
+<script>
+       
+    $( document ).ready(function() {
+    
+          $("button").click(function() {
+            alrt("me");
+          });
+</script>
+<script>
+
+</script>
+
+</body>
+
+</html>

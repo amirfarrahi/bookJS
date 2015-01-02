@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Exchange Books</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link href="stylesheets/small-business.css" rel="stylesheet">
+    <link href="stylesheets/bootstrap-table.min.css" rel="stylesheet">
+    <link href="stylesheets/font-awesome.min.css" rel="stylesheet">
+    <link href="stylesheets/social-buttons-3.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body style="background: url(img/lib.jpg) no-repeat center;">
+
+    <!-- Navigation 
+        <nav class="navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+      
+		<a class="" href="#">
+                    <img src="img/logo.jpg" class="img-responsive logosize" alt="Brand">
+                </a>
+             
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact Us</a>
+                    </li>
+		    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+                    <li>
+                         <button class="btn btn-facebook"><i class="fa fa-facebook"></i></button>
+                         <button class="btn btn-twitter"><i class="fa fa-twitter"></i></button>
+                    </li>
+                 </ul>
+               </div>
+
+        </div>
+
+    </nav> -->
+
+	
+    <!-- Page Content -->
+   <div class="container">
+
+
+
+  <div class="modal-dialog">
+  <div class="modal-content" style=" background-color:#E8E8E8;">
+      <div class="modal-header">
+
+        <h1 class="model-title"><span class="fa fa-sign-in"></span>&nbsp;Login</h1>
+      </div>
+      <div class="modal-body">
+      <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
+          <form class="form col-md-12 col-sm-6 center-block"action="/login" method="post" >
+            <div class="form-group">
+              <input type="text" name="email" class="form-control input-lg" placeholder="Email" required autofocus>
+            </div>
+            <div class="form-group" >
+	      <input type="password" name="password" class="form-control input-lg" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</button>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-trash"></span>&nbsp;Clear</button>
+              <span class="pull-right"><a href="/signup">Do not have an account?Register</a></span><span><a href="/forgot">
+Forgot your password?</a></span>
+            </div>
+         </form>
+      </div>
+      <div class="modal-footer">
+         	
+      </div>
+
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+       <div class="row">
+          
+	   <div class="col-md-3"></div>
+               <div class="container">
+	           <div class="row">
+			<div class="col-md-4">
+				<h1 class="text-center login-title myfont-title">Sign in</h1>
+				<div class="row" style="height:10px"></div>
+				<div class="account-wall">
+				<form class="form-signin">
+					<input type="text" class="form-control" placeholder="Email" required autofocus>
+					<input type="password" class="form-control" placeholder="Password" required>
+					<button class="btn  btn-success btn-block" type="submit">Sign in</button>
+					<div class="checkbox pull-left span12">
+						<a id="forgotlink" href="#">Forgot your password?</a>
+					</div>
+                                </form>
+				<div class="checkbox pull-right span12">
+				      <input type="checkbox" value="remember-me">Remember me
+			        </div>
+				<div class="row" style="height:80px;"></div>
+                                <h1 class="text-center login-title myfont-title">Sign up today!</h1>
+				<div class="row" style="height:10px"></div>
+				<div class="account-wall">
+				<form class="form-signup">
+					<input type="text" class="form-control" placeholder="User Name" required autofocus>
+  				        <input type="text" class="form-control" placeholder="Email" required autofocus>
+					<input type="password" class="form-control" placeholder="Password" required>
+					<button class="btn  btn-success btn-block" type="submit">Sign up</button>
+				</form>        
+
+			</div>
+		   </div>
+	       </div>
+           </div> 
+   </div> 
+
+>
+<!--container>
+
+     
+
+<!--
+ <div class="table-responsive">
+	<table id="table-pagination" class="table table-striped" data-url="data2.json" data-height="400" data-width="100" data-pagination="true" data-search="true" style="border:1px solid red">
+          
+      </table>
+</div>
+      <button id="via-javascript-table">Start Example</button>
+
+    -->
+
+
+    <!-- jQuery -->
+    <script src="javscripts/jquery.js"></script>
+    <script src="javscripts/jquery.min.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="javscripts/bootstrap.min.js"></script>
+    <script src="javscripts/bootstrap-table.min.js"></script>
+<script>
+    $(function () {
+        $('#via-javascript-table').click(function () {
+            $(this).hide();
+
+            $('#table-pagination').bootstrapTable({
+                method: 'get',
+                url: 'data2.json',
+                cache: false,
+                height: 400,
+		width:1000,
+                striped: true,
+                pagination: true,
+                pageSize: 50,
+                pageList: [10, 25, 50, 100, 200],
+                search: true,
+                showColumns: true,
+                showRefresh: true,
+                minimumCountColumns: 2,
+                clickToSelect: true,
+                columns: [{
+                    field: 'state',
+                    checkbox: true
+                }, {
+                    field: 'id',
+                    title: 'Item ID',
+                    align: 'center',
+                    valign: 'bottom',
+                    sortable: false
+                }, {
+                    field: 'name',
+                    title: 'Item Name',
+                    align: 'center',
+                    valign: 'middle',
+                    sortable: false,
+                    //formatter: nameFormatter
+                }, {
+                    field: 'price',
+                    title: 'Item Price',
+                    align: 'center',
+                    valign: 'top',
+                    sortable: false,
+                    //formatter: priceFormatter,
+                    //sorter: priceSorter
+                }/*, {
+                    field: 'operate',
+                    title: 'Item Operate',
+                    align: 'center',
+                    valign: 'middle',
+                    clickToSelect: false,
+                    formatter: operateFormatter,
+                    events: operateEvents
+                }*/]
+            });
+        });
+    });
+</script>
+<script>
+
+</script>
+
+</body>
+
+</html>

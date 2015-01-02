@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Small Business - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link href="css/small-business.css" rel="stylesheet">
+    <link href="css/bootstrap-table.min.css" rel="stylesheet">
+
+
+
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+            <nav class="navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+      
+		<a class="" href="#">
+                    <img src="img/logo.jpg" class="img-responsive logosize" alt="Brand">
+                </a>
+             
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact Us</a>
+                    </li>
+		    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+                 </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+	
+    <!-- Page Content -->
+   <div class="container">
+       <div class="row" style="height:30px"></div>
+
+       <div class="row">
+            <!-- sidebar -->
+
+
+
+
+	   <div class="col-md-3">
+
+	       <div class="list-group myfont">
+                   <a id="dashboardm" href="#sell" class="list-group-item text-center"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
+                   <a id="message" href="#" class="list-group-item text-center"><i class="glyphicon glyphicon-envelope"></i> Messages</a>
+                   <a id="sellm" href="#" class="list-group-item text-center"><i class="glyphicon glyphicon-qrcode"></i> Sell Books</a>
+                   <a id="buym" href="#" class="list-group-item text-center"><i class="glyphicon glyphicon-barcode"></i> Buy Books</a>
+                   <a id="alertm" href="#" class="list-group-item text-center"><i class="glyphicon glyphicon-exclamation-sign"></i> Alerts</a>
+               </div>
+
+           </div>
+           	   <div class="col-md-6">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-comment"></span> Conversation
+                
+                </div>
+                <div class="panel-body">
+                    <ul class="chat">
+                        <li class="left clearfix">
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+                                </div>
+                                <p>
+                                    do you sell your book?
+                                </p>
+                            </div>
+                        </li>
+                        <li class="right clearfix">
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                </div>
+                                <p align="right">
+                                    yes send it plz.
+                                </p>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Send</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div><!--row>
+   </div> <!--container>
+
+     
+
+<!--
+ <div class="table-responsive">
+	<table id="table-pagination" class="table table-striped" data-url="data2.json" data-height="400" data-width="100" data-pagination="true" data-search="true" style="border:1px solid red">
+          
+      </table>
+</div>
+      <button id="via-javascript-table">Start Example</button>
+
+    -->
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.min.js"></script>
+    <script src="js/bootbox.min.js"></script>
+<script>
+    $(function () {
+        $('#via-javascript-table').click(function () {
+            $(this).hide();
+
+            $('#table-pagination').bootstrapTable({
+                method: 'get',
+                url: 'data2.json',
+                cache: false,
+                height: 400,
+		width:1000,
+                striped: true,
+                pagination: true,
+                pageSize: 50,
+                pageList: [10, 25, 50, 100, 200],
+                search: true,
+                showColumns: true,
+                showRefresh: true,
+                minimumCountColumns: 2,
+                clickToSelect: true,
+                columns: [{
+                    field: 'state',
+                    checkbox: true
+                }, {
+                    field: 'id',
+                    title: 'Item ID',
+                    align: 'center',
+                    valign: 'bottom',
+                    sortable: false
+                }, {
+                    field: 'name',
+                    title: 'Item Name',
+                    align: 'center',
+                    valign: 'middle',
+                    sortable: false,
+                    //formatter: nameFormatter
+                }, {
+                    field: 'price',
+                    title: 'Item Price',
+                    align: 'center',
+                    valign: 'top',
+                    sortable: false,
+                    //formatter: priceFormatter,
+                    //sorter: priceSorter
+                }/*, {
+                    field: 'operate',
+                    title: 'Item Operate',
+                    align: 'center',
+                    valign: 'middle',
+                    clickToSelect: false,
+                    formatter: operateFormatter,
+                    events: operateEvents
+                }*/]
+            });
+        });
+    });
+</script>
+<script>
+
+    $(document).ready(function() {
+	$("#forgotlink").on('click',function(e){
+		bootbox.prompt("What is your email?", function(result) {
+
+}); 		 
+
+
+         });
+	
+
+});
+</script>
+
+</body>
+
+</html>

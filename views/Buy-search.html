@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+  
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/small-business.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+  <!-- Navigation -->
+           <nav class="navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+      
+		<a class="" href="#">
+                    <img src="img/logo.jpg" class="img-responsive logosize" alt="Brand">
+                </a>
+             
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact Us</a>
+                    </li>
+		    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+                 </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+ 
+   <div class="container">
+       <div class="row" style="height:30px"></div>
+
+       <div class="col-md-4">
+
+           <div class="col-md-10">
+	       <div class="list-group myfont">
+                   <a id="dashboardm" href="#sell" class="list-group-item text-center"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
+                   <a id="message" href="#" class="list-group-item text-center"><i class="glyphicon glyphicon-envelope"></i> Messages</a>
+                   <a id="sellm" href="#" class="list-group-item text-center"><i class="glyphicon glyphicon-qrcode"></i> Sell Books</a>
+                   <a id="buym" href="#" class="list-group-item text-center"><i class="glyphicon glyphicon-barcode"></i> Buy Books</a>
+                   <a id="alertm" href="#" class="list-group-item text-center"><i class="glyphicon glyphicon-exclamation-sign"></i> Alerts</a>
+               </div>
+
+           </div>
+      </div>
+      <div class="col-md-6">
+
+<div class="form-group myfont">
+       <form class="form-horizontal" role="form">
+              <div class="">
+                  <label class="col-sm-3 control-label">ISBN #</label>
+                  <div class="input-group col-md-6">
+                      <input type="text" class="form-control" placeholder="enter ISBN">
+                      <span class="input-group-btn">
+                          <button id="lu" class="btn btn-success" type="button">Lookup!</button>
+                      </span>
+                  </div>
+            </div>
+      </form>
+</div>
+<div class="col-lg-14" style="border: 1px solid #E8E8E8;">
+               <button type="submit" class="btn btn-lg btn-default fixed-table-toolbar" style="margin-top:2px;"><i class="glyphicon glyphicon-trash"></i></button>
+      <table id="table-pagination">
+
+      </table>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    
+
+ 
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.min.js"></script>
+ 
+
+
+
+<script>
+    $(function () {
+        $('#lu').click(function () {
+
+
+          $('#table-pagination').bootstrapTable({
+                method: 'get',
+                url: 'data2.json',
+                cache: false,
+                height: 400,
+                striped: true,
+                pagination: true,
+                pageSize: 50,
+                pageList: [10, 25, 50, 100, 200],
+                search: true,
+                showColumns: false,
+                showRefresh: false,
+                minimumCountColumns: 2,
+                clickToSelect: true,
+                columns: [{
+                    field: 'state',
+                    checkbox: true
+                }, {
+                    field: 'name',
+                    title: 'UserName',
+                    align: 'left',
+                    valign: 'bottom',
+                    sortable: false
+                },
+		{
+                    field: 'price',
+                    title: 'price',
+                    align: 'left',
+                    valign: 'bottom',
+                    sortable: false
+                }		]
+            });
+           
+        });
+    });
+</script>
+
+<script>
+
+    $(document).ready(function() {
+          //  $("#message").click();
+	
+
+});
+</script>
+
+  </body>
+
+</html>
