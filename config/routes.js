@@ -47,8 +47,13 @@ app.get('/confirmation', isLoggedIn, function(req, res) {
     }); 
 });
 app.get('/verify/:id',function(req,res){
+<<<<<<< HEAD
     var host=(process.env.BASE_IRI || config.host);
     if((req.protocol+"://"+req.get('host'))==("http://"+host))
+=======
+//    var host='localhost:3506';
+    if((req.protocol+"://"+req.get('host'))==("http://"+config.host))
+>>>>>>> 13f300bcc2353888d7527e8b663b7d9e6ef3c593
     {
         console.log("Domain is matched. Information is from Authentic email");
         user.findOne({ 'local.token' : req.params.id }, function(err, user) {
