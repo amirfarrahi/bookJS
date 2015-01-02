@@ -1,14 +1,17 @@
 var bcrypt   = require('bcrypt-nodejs'),
     mongoose = require('mongoose'),
+    crypto = require('crypto');
     Schema = mongoose.Schema;
-
+    
 var UserSchema = new Schema({
     local            : {
         email        : String,
         password     : String,
         username     : String,
         token        : { type: String,  required: true },
-        verified     : { type: Boolean, default:false  }
+        verified     : { type: Boolean, default:false  },
+        resetPasswordToken: String,
+        resetPasswordExpires: Date
     },
     facebook         : {
         id           : String,

@@ -7,7 +7,7 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
     }
 }); 
 var rand,mailOptions,host,link;
-exports.sendEmail=function (req,res,to,sub,cont) {
+exports.sendEmail=function (to,sub,cont,callback) {
 
    
   
@@ -21,12 +21,13 @@ exports.sendEmail=function (req,res,to,sub,cont) {
     }
 //    console.log(mailOptions);
     smtpTransport.sendMail(mailOptions, function(error, response){
-        if(error){
-            console.log(error);
-        res.render('signup.ejs', { message: 'mail server is down' });
-        };
+        if(error) return callback(new Error("An error has occured in mail server")); 
+    
+          callback(null,1);    
+     //   res.render('signup.ejs', { message: 'mail server is down' });
+     //   };
   //      console.log("Message sent: " + response.message);
-        res.render('confirmation.ejs', { message: to });
+       // res.render('confirmation.ejs', { message: to });
    });
 };
 /*

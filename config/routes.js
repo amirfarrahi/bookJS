@@ -1,6 +1,7 @@
 var emailm= require('../routes/emailmanager');
 var user = require('../models/user');
 var config= require('./config')();
+var crypto=require('crypto');
 
 module.exports = function(app, passport) {
 
@@ -35,20 +36,22 @@ app.get('/profile', isLoggedIn, function(req, res) {
 });
 
 app.get('/confirmation', isLoggedIn, function(req, res) {
-    var link="http://"+req.get('host')+"/verify?id="+req.user.local.token;
+    var link="http://"+req.get('host')+"/verify/"+req.user.local.token;
     var subject='Please confirm this email';
     var to=req.user.local.email; 
     var content= 'Hello,<br> Please Click on the link to verify your email.<br><a href='+link+'>Click here to verify</a>';
-    emailm.sendEmail(req,res,to,subject,content);
-    
-}); 
+    emailm.sendEmail(to,subject,content,function (err,data){;
+     if (data!=1)   res.render('signup.ejs', { message: 'mail server is down' });
+     res.render('confirmation.ejs', { message: to });
 
-app.get('/verify',function(req,res){
+    }); 
+});
+app.get('/verify/:id',function(req,res){
 //    var host='localhost:3506';
     if((req.protocol+"://"+req.get('host'))==("http://"+config.host))
     {
         console.log("Domain is matched. Information is from Authentic email");
-        user.findOne({ 'local.token' : req.query.id }, function(err, user) {
+        user.findOne({ 'local.token' : req.params.id }, function(err, user) {
         if (err)  res.end("error");
         if (!user) res.end("bad request");
         if (!user.verifed) {
@@ -63,6 +66,60 @@ app.get('/verify',function(req,res){
         });
     } else res.end("<h1>Request is from unknown source");
 
+});
+
+app.get('/forgot', function(req, res) {
+    //console.log(req.user);
+    res.render('forgot.ejs',{message:''});
+
+});
+
+app.post('/forgot', function (req,res){
+    var token = crypto.randomBytes(16).toString('hex');
+    user.findOne({ 'local.email': req.body.email }, function(err, user) {
+        if (!user) return res.render('forgot.ejs',{ message :'No account with that email address exists.'});
+        console.log(user);
+        user.local.resetPasswordToken = token;
+        console.log(user.local.resetPasswordToken);
+        user.local.resetPasswordExpires = Date.now() + 3600000;         
+        user.save(function(err) {
+            if (err) res.end("error");
+            var passcon='You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+          'Please click on the following link, or paste this into your browser to complete the process:\n\n' +'http://' + req.get('host') + '/reset/' + token + '\n\n';
+            emailm.sendEmail(user.local.email,'password reset',passcon,function (err,data){;
+                if (data!=1)  res.render('forgot.ejs',{message:'main server is down'});
+                res.render('forgot.ejs',{message: 'email contain instruction on how to reset your password sent to your address'});
+
+            });
+        });
+    });
+});
+
+app.get('/reset/:id', function(req, res) {
+ user.findOne({ 'local.resetPasswordToken': req.params.id, 'local.resetPasswordExpires': { $gt: Date.now() } }, function(err, user) {
+    if (err) res.end("error");
+  
+    console.log('gfgfgfgf'+user);
+    if (!user)  res.render('forgot.ejs',{message:'Password reset token is invalid or has expired.'});
+else
+    res.render('updatepass.ejs',{mu:user.local.resetPasswordToken,message:''});
+
+    });
+});
+
+app.post('/reset/:id', function(req, res) {
+    user.findOne({ 'local.resetPasswordToken': req.params.id, 'local.resetPasswordExpires': { $gt: Date.now() } }, function(err, user) {
+        if (err) res.end("error");
+    //       console.log(user);
+        if (!user)  res.render('forgot.ejs',{message:'Password reset token is invalid or has expired.'});
+        user.local.resetPasswordToken=null;
+        user.local.resetPasswordExpires=null;
+        user.local.password=user.generateHash(req.body.password);
+        user.save(function(err) {
+           if (err) res.end("error");
+           res.render('updatepass.ejs',{mu:user.local.resetPasswordToken,message:'Password updated successfully'});
+        });
+    });
 });
 
 function isLoggedIn(req, res, next) {
